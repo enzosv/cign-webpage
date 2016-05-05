@@ -1,6 +1,7 @@
 <html>
 
 <head>
+    <meta name="apple-mobile-web-app-capable" />
     <title></title>
 </head>
 
@@ -30,9 +31,7 @@
         return query_string;
     }();
     if (QueryString.ll) {
-        alert(QueryString.ll);
         window.location = "waze://?ll=" + QueryString.ll + "&navigate=yes";
-        console.log(window.location);
     }
     </script>
 </body>
