@@ -29,6 +29,7 @@
         return query_string;
     }();
     if (QueryString.ll) {
+    	console.log(QueryString.ll);
         window.location = "waze://?ll=" + QueryString.ll + "&navigate=yes";
         console.log(window.location);
     }
