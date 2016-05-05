@@ -5,6 +5,7 @@
 </head>
 
 <body>
+    Hello world!
     <script type="text/javascript">
     var QueryString = function() {
         // This function is anonymous, is executed immediately and 
@@ -29,7 +30,7 @@
         return query_string;
     }();
     if (QueryString.ll) {
-    	console.log(QueryString.ll);
+        alert(QueryString.ll);
         window.location = "waze://?ll=" + QueryString.ll + "&navigate=yes";
         console.log(window.location);
     }
