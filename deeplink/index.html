@@ -77,20 +77,20 @@
             mixpanel.identify(QueryString.user);
             if (QueryString.method) {
                 mixpanel.track(
-                    "open_in", {
+                    "Open", {
                         "method": QueryString.method,
                         "ll": QueryString.ll
                     }
                 );
             } else {
                 mixpanel.track(
-                    "open_in", {
+                    "Open", {
                         "method": "unknown",
                         "ll": QueryString.ll
                     }
                 );
             }
-            mixpanel.people.increment("open");
+            mixpanel.people.increment("open_count");
             mixpanel.people.append("opens", QueryString.ll);
         }
         window.location = "waze://?ll=" + QueryString.ll + "&navigate=yes";
