@@ -50,6 +50,7 @@
 
 <body>
     <script type="text/javascript">
+    "use strict";
     var QueryString = function() {
         // This function is anonymous, is executed immediately and 
         // the return value is assigned to QueryString!
@@ -72,28 +73,39 @@
         }
         return query_string;
     }();
-    if (QueryString.ll) {
+    if (QueryString.tlt && QueryString.tln) {
+        var ll = QueryString.tlt + "," + QueryString.tln;
         if (QueryString.user) {
             mixpanel.identify(QueryString.user);
             if (QueryString.method) {
                 mixpanel.track(
                     "Open", {
                         "method": QueryString.method,
-                        "ll": QueryString.ll
+                        "ll": ll
                     }
                 );
             } else {
                 mixpanel.track(
                     "Open", {
                         "method": "unknown",
-                        "ll": QueryString.ll
+                        "ll": ll
                     }
                 );
             }
             mixpanel.people.increment("open_count");
-            mixpanel.people.append("opens", QueryString.ll);
+            mixpanel.people.append("opens", ll);
         }
-        window.location = "waze://?ll=" + QueryString.ll + "&navigate=yes";
+        if (QueryString.flt && QueryString.fln) {
+            setTimeout(function() {
+                window.location = "https://www.waze.com/livemap?from_lat=" + QueryString.flt + "&from_lon=" + QueryString.fln + "&to_lat=" + QueryString.tlt + "&to_lon=" + QueryString.tln;
+            }, 250);
+        } else{
+            setTimeout(function() {
+                window.location = "https://www.waze.com/livemap?to_lat=" + QueryString.tlt + "&to_lon=" + QueryString.tln;
+            }, 250);
+        }
+        window.location = "waze://?ll=" + ll + "&navigate=yes";
+
     }
     </script>
 </body>
