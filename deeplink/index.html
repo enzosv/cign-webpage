@@ -97,11 +97,11 @@
         }
         if (QueryString.flt && QueryString.fln) {
             setTimeout(function() {
-                window.location = "https://www.waze.com/livemap?from_lat=" + QueryString.flt + "&from_lon=" + QueryString.fln + "&to_lat=" + QueryString.tlt + "&to_lon=" + QueryString.tln;
+                window.location = "https://www.waze.com/livemap?from_lat=" + QueryString.flt + "&from_lon=" + QueryString.fln + "&to_lat=" + QueryString.tlt + "&to_lon=" + QueryString.tln + "&at_req=0&at_text=Now";
             }, 250);
         } else{
             setTimeout(function() {
-                window.location = "https://www.waze.com/livemap?to_lat=" + QueryString.tlt + "&to_lon=" + QueryString.tln;
+                window.location = "https://www.waze.com/livemap?to_lat=" + QueryString.tlt + "&to_lon=" + QueryString.tln + "&at_req=0&at_text=Now";
             }, 250);
         }
         window.location = "waze://?ll=" + ll + "&navigate=yes";
